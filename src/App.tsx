@@ -23,9 +23,9 @@ function App() {
     [data.players, setData]
   );
 
-  useEffect(() => {
-    handleSort(isDesc);
-  }, [handleSort, isDesc]);
+  // useEffect(() => {
+  //   handleSort(isDesc);
+  // }, [handleSort, isDesc]);
 
   console.log(data);
 
