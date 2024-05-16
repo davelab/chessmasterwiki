@@ -1,4 +1,4 @@
-# Getting Started the Chess Grandmasyer Wiki
+# Getting Started the Chess Grandmaster Wiki
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
