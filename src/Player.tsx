@@ -13,7 +13,7 @@ const Player = () => {
   console.log(data);
 
   return (
-    <div className="flex items-center rounded-xl bg-white shadow-md px-8 py-6">
+    <div className="md:flex items-center rounded-xl bg-white shadow-md px-8 py-6">
       <img
         src={data?.avatar}
         alt={data.name}
