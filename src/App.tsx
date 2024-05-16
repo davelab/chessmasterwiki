@@ -45,7 +45,8 @@ function App() {
       <header className="px-6 h-[60px] flex items-center border-b border-b-gray-300">
         <h1 className="text-2xl font-bold">♞ Chess Masters Wiki</h1>
       </header>
-      <div className="grid grid-cols-4">
+
+      <div className="grid grid-cols-[380px_auto]">
         <aside className="min-w-80 h-[calc(100vh-60px)] overflow-hidden overflow-y-auto p-6 aria-[current=page]:text-blue-400">
           <div className="flex">
             <div className="grow-1">
@@ -81,7 +82,7 @@ function App() {
             ))}
           </ul>
         </aside>
-        <div className="col-span-3 bg-gray-100">
+        <div className="bg-gray-100">
           <div className="py-6 px-10">
             <Outlet />
           </div>
