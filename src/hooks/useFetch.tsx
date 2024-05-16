@@ -6,8 +6,6 @@ export function useFetch(url: string) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error>();
 
-  // const [state, dispatch] = useReducer(useFetchReducer, useFetchInitialState);
-
   useEffect(() => {
     if (typeof url !== "string") return;
 
@@ -52,5 +50,5 @@ export function useFetch(url: string) {
     };
   }, [url]);
 
-  return { data, loading, error };
+  return { data, loading, error, setData };
 }

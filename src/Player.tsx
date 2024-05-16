@@ -10,7 +10,6 @@ const Player = () => {
   const { playerName } = useParams<PlayerParams>();
 
   const { data } = useFetch(`${urls.player}/${playerName}`);
-  console.log(data);
 
   return (
     <div className="flex items-center rounded-xl bg-white shadow-md px-8 py-6">
