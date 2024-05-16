@@ -13,15 +13,20 @@ const Player = () => {
   console.log(data);
 
   return (
-    <div className="flex">
+    <div className="flex items-center rounded-xl bg-white shadow-md px-8 py-6">
       <img
         src={data?.avatar}
         alt={data.name}
         className="size-40 rounded-full bg-gray-50"
       />
-      <div className="ml-10">
+      <div className="ml-5">
         <h2 className="text-xl font-bold">{data?.name || data.username}</h2>
-        <p className="text-sm text-gray-500">{data.title}</p>
+        <p className="text-sm text-gray-500">{data?.title}</p>
+        {data?.followers && (
+          <p className="text-sm text-gray-500">
+            followers: <span className="font-bold">{data?.followers}</span>
+          </p>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import urls from "./config/urls";
 import { useFetch } from "./hooks/useFetch";
+import classNames from "classnames";
 
 function App() {
   const { data } = useFetch(urls.gms);
@@ -13,16 +14,26 @@ function App() {
         <h1 className="text-2xl font-bold">♞ Chess Masters Wiki</h1>
       </header>
       <div className="grid grid-cols-4">
-        <aside className="min-w-80 h-[calc(100vh-60px)] overflow-hidden overflow-y-auto py-6">
+        <aside className="min-w-80 h-[calc(100vh-60px)] overflow-hidden overflow-y-auto p-6 aria-[current=page]:text-blue-400">
           <ul>
             {data?.players?.map((player: string) => (
-              <li className="px-4 py-2" key={player}>
-                <Link to={`/player/${player}`}>{player}</Link>
+              <li key={player}>
+                <NavLink
+                  className={({ isActive }) =>
+                    classNames(
+                      `block px-4 py-2 hover:bg-gray-100 rounded-md font-semibold`,
+                      { "bg-blue-300": isActive }
+                    )
+                  }
+                  to={`/player/${player}`}
+                >
+                  {player}
+                </NavLink>
               </li>
             ))}
           </ul>
         </aside>
-        <div className="col-span-3">
+        <div className="col-span-3 bg-gray-100">
           <div className="py-6 px-10">
             <Outlet />
           </div>
