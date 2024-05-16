@@ -50,7 +50,6 @@ function App() {
         <aside className="min-w-80 h-[calc(100vh-60px)] overflow-hidden overflow-y-auto p-6 aria-[current=page]:text-blue-400">
           <div className="flex">
             <div className="grow-1">
-              {" "}
               <input
                 className="w-full mb-5 p-3 border-2 border-black rounded-md"
                 type="text"
@@ -59,9 +58,15 @@ function App() {
                 onChange={handleFilterChange}
               />
             </div>
-            <button type="button" onClick={() => setIsDesc(!isDesc)}>
-              Sort
-            </button>
+            <div>
+              <button
+                className="flex items-center px-4 h-[52px] ml-1 rounded-md bg-blue-500 text-white"
+                type="button"
+                onClick={() => setIsDesc(!isDesc)}
+              >
+                Sort {isDesc ? "Asc" : "Desc"}
+              </button>
+            </div>
           </div>
 
           <ul>
