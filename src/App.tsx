@@ -5,27 +5,27 @@ import classNames from "classnames";
 import { ChangeEvent, useCallback, useEffect, useState } from "react";
 
 function App() {
-  const { data, setData, loading } = useFetch(urls.gms);
+  const { data, loading, setData } = useFetch(urls.gms);
   const [filterText, setFilterText] = useState("");
   const [isDesc, setIsDesc] = useState(false);
 
-  // const handleSort = useCallback(
-  //   (desc = false) => {
-  //     if (data?.players) {
-  //       const sortedData = [...data.players].sort((a, b) => {
-  //         if (desc) return b.localeCompare(a);
+  const handleSort = useCallback(
+    (desc = false) => {
+      if (data?.players) {
+        const sortedData = [...data.players].sort((a, b) => {
+          if (desc) return b.localeCompare(a);
 
-  //         return a.localeCompare(b);
-  //       });
-  //       setData({ players: sortedData });
-  //     }
-  //   },
-  //   [data.players, setData]
-  // );
+          return a.localeCompare(b);
+        });
+        setData({ players: sortedData });
+      }
+    },
+    [data.players, setData]
+  );
 
-  // useEffect(() => {
-  //   handleSort(isDesc);
-  // }, [handleSort, isDesc]);
+  useEffect(() => {
+    handleSort(isDesc);
+  }, [handleSort, isDesc]);
 
   console.log(data);
 
@@ -34,7 +34,7 @@ function App() {
   };
 
   const filteredData =
-    !loading && data
+    !loading && data?.players
       ? data?.players.filter((item: string) =>
           item.toLowerCase().includes(filterText.toLowerCase())
         )
@@ -64,7 +64,7 @@ function App() {
           </div>
 
           <ul>
-            {filteredData?.map((player: string) => (
+            {filteredData.map((player: string) => (
               <li key={player}>
                 <NavLink
                   className={({ isActive }) =>
